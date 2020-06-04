@@ -5,8 +5,8 @@
 ```
 My Web Application Is An Platform Let You To Create An Account And Login with It Then
 You Can Save Your [TODO LIST] Which Mean Save Your Plan What Do You Want To Do In The Futur Such As [Calendar]
-And You Can Delete It Or Update That List Any Time You Want , And If You Missed A Time That You Are Regestred
-You Will See The Color Of Date Change To [Red]
+And You Can Delete It Or Update That List Any Time You Want , And If You Missed A Date That You Assigned
+You Will See The Color Of Date Change To [Red] Like In [Google Classroom]
 
 ```
 

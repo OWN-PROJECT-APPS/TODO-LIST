@@ -78,7 +78,8 @@ endif;
                     <i class="fas fa-angle-double-right mr-1"></i>
                     <span><?php   echo $val['todoName']; ?></span>
                 </span>
-                <span class="arrow text-dark"> <span class="date mr-2"><?php  echo $val['todoDate']; ?></span>
+                <span class="arrow text-dark"> <span
+                        class="date mr-2 <?php if(strtotime($val['todoDate']) - time() <  0):echo 'missed';endif; ?>"><?php  echo $val['todoDate']; ?></span>
                     <i class="fa fa-chevron-down"></i>
                 </span>
             </div>

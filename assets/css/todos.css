@@ -114,3 +114,7 @@ input {
 #updateTodo {
   display: none;
 }
+.missed {
+  color: #f00;
+  text-decoration: line-through;
+}
