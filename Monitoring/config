@@ -1,0 +1,25 @@
+# monit rules
+set daemon 30 # checking the config file every 30 seconds
+set logfile /var/log/monit.log
+# monitoring the web interface
+set httpd port 81 and
+    use address 0.0.0.0 # OR 0.0.0.0|localhost for web access
+    allow 0.0.0.0/0.0.0.0 # allow localhost to connect to the server
+    allow admin:akram123456
+# check MySQL (HOST)
+check host mysqldb with address 127.0.0.1
+    if failed ping then alert # if we can't ping, send alert
+    if failed port 3306 protocol mysql then alert # if mysql port 3306 doesn't work, send alert.
+# check Apache (PROCESS)
+check process httpd with pidfile /usr/sbin/httpd.pid
+    start program = "/usr/sbin/httpd start"
+    stop program = "/usr/sbin/httpd stop"
+    group www-data
+# Check ssh Service
+check process sshd with pidfile /var/run/sshd.pid
+    start program = "/usr/sbin/sshd start"
+    stop program = "/usr/sbin/sshd stop"
+    if failed port 22 protocol ssh then restart
+    if 5 restarts within 5 cycles then timeout
+# include files for individual sites
+Include /etc/monit.d/*.cfg
