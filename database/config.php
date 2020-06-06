@@ -21,7 +21,7 @@ class Database{
 		try {
 
 			$this->db = new PDO($dsn, $this->user, $this->pass, $options);
-
+			// Create Tables 
 		} catch(PDOException $e){
 		       echo $e->getMessage();
 		}

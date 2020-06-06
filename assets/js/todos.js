@@ -41,13 +41,19 @@ $(document).ready(function () {
     })
       .then((res) => {
         if (res.status == 1) {
+          let redDateCalss = "";
+          if (new Date(res.message.todoDate) - Date.now() < 0) {
+            redDateCalss = "missed";
+          } else {
+            redDateCalss = "";
+          }
           template += `
            <div class="form-group text-left bg-light shadow p-3" data-todoId="${res.message.id}">
                 <div class="d-flex justify-content-between">
                     <span class="todo-name"> <i class="fas fa-angle-double-right mr-1"></i>
                         ${res.message.todoName}
                     </span>
-                    <span class="arrow text-dark"> <span class="date mr-2">${res.message.todoDate}</span>
+                    <span class="arrow text-dark"> <span class="date mr-2 ${redDateCalss}">${res.message.todoDate}</span>
                         <i class="fa fa-chevron-down"></i>
                     </span>
                 </div>
@@ -79,7 +85,7 @@ $(document).ready(function () {
           );
           $(".list-todos").append(template);
           $("input").val("");
-          $(this).prev().wrap("<form></from>").reset();
+          $("#datepicker").wrap("<form></from>").reset();
         } else if (res.status == 2) {
           $(".notify")
             .html(res.message)
@@ -251,12 +257,22 @@ $(document).ready(function () {
         }, 1000);
 
         // Fill Updated Data
+        let redDateCalss = null;
+        if (new Date(inputDate) - Date.now() < 0) {
+          redDateCalss = "missed";
+        }
         let ourElem = $(".list-todos").find(`[data-todoId=${todoId}]`);
         ourElem.find(".todo-name span").text(inputName.trim());
-        ourElem.find(".date").text(inputDate.trim());
+        if (redDateCalss) {
+          ourElem.find(".date").addClass("missed").text(inputDate.trim());
+        } else {
+          ourElem.find(".date").removeClass("missed").text(inputDate.trim());
+        }
         ourElem.find(".todo-desc").text(inputDesc.trim());
         $("input").val("");
-        $(this).prev().wrap("<form></from>").reset();
+        $("#updateTodo").fadeOut(400, function () {
+          $("#addTodo").fadeIn();
+        });
       } else if (res.status == 2) {
         $(".notify")
           .html(res.message)
