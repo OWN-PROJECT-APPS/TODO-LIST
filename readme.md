@@ -44,6 +44,7 @@ Load By Self But First The [Setup] File Install The [Git] First Then Make A Clon
 
 This Specific Folder For Monitoring Your Service Such As [Apache,SSh,Mysql...] After The [Setup] File
 Install [Monit] Package Will Do Some Change On The Default [Monitrc] File To Display The Monitoring Of Your Service.
+Monitoring username=[admin] , password=[akram123456] Change It From The [Config] File In Monitoring Folder.
 
 ```
 

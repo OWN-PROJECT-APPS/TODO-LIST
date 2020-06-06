@@ -5,12 +5,12 @@ sudo yum -y update
 ./Apache/setup.sh
 # Start Install PHP
 ./Php/setup.sh
-# start Mysql Installation And Configuration
-./Mysql/config
 # Start Install SSH Service
 ./Ssh/setup.sh
 # Start Firewall Installation And Configuration
 ./Firewall/setup.sh
+# start Mysql Installation And Configuration
+./Mysql/config
 echo "Configuration Of the network.\n"
 read -p  "Please Choose Interface For Your Network :(enp0s8 | ens33 | ..) " interface
 ipadd=$(ip addr show $interface | grep inet | awk '{ print $2; }' | sed 's/\/.*$//')

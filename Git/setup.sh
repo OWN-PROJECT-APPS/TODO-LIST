@@ -1,7 +1,7 @@
 #!/bin/bash
-pathOfTheProj=""
+pathOfTheProj="https://github.com/prog201/webapp.git"
 apachePath="/var/www/html"
-project="webApp"
+project="webapp"
 echo "Start Install Git\n"
 sudo yum -y install git
 echo "End Installation Git VCS\n"
