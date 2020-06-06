@@ -118,3 +118,6 @@ input {
   color: #f00;
   text-decoration: line-through;
 }
+.closeIcon {
+  display: none;
+}

@@ -62,6 +62,8 @@ endif;
             <input type="date" name="datetime" id="datepicker" class="form-control">
             <button type="submit" class="btn btn-primary form-control mt-2" id="addTodo">Add </button>
             <button type="submit" class="btn btn-success form-control mt-2" id="updateTodo">Update </button>
+            <i class="fa fa-times mt-1 rounded-circle text-danger p-2 closeIcon" style="cursor:pointer"
+                aria-hidden="true"></i>
         </div>
 
     </section>

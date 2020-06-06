@@ -198,9 +198,16 @@ $(document).ready(function () {
     $("#datepicker").val($tododate.trim());
     $("#addTodo").fadeOut(400, function () {
       $("#updateTodo").attr("data-todoId", $todoId).fadeIn();
+      $(".closeIcon").fadeIn();
     });
   });
-
+  // Close Update Form
+  $(".closeIcon").click(function () {
+    $("#updateTodo").fadeOut();
+    $(this).fadeOut();
+    $("#addTodo").fadeIn();
+    $("input").val("");
+  });
   // Upate TODO On Database
   $("#updateTodo").click(function () {
     let inputDate = $("#datepicker").val();
