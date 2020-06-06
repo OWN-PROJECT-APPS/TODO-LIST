@@ -11,8 +11,8 @@ check host mysqldb with address 127.0.0.1
     if failed ping then alert # if we can't ping, send alert
     if failed port 3306 protocol mysql then alert # if mysql port 3306 doesn't work, send alert.
 # check Apache (PROCESS)
-check process httpd with pidfile /usr/sbin/httpd.pid
-    start program = "/usr/sbin/httpd start"
+check process httpd with pidfile /var/run/httpd/httpd.pid
+    start program = "/usr/sbin/httpd start" with timeout 60 seconds
     stop program = "/usr/sbin/httpd stop"
     group www-data
 # Check ssh Service
