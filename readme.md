@@ -65,3 +65,10 @@ Finallay To Run All Files You Need Just To Run [ Setup ] File In Home Folder Exc
 Not Include If You Want Add It To This File
 
 ```
+
+### Additionla Info
+
+```
+You Can Show The Picture Of Bash src As Monitoring In Image Folder.
+
+```
